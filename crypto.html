@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CryptoX - Crypto Trading Platform</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff9900;
+            margin-left: 20px;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            color: #fff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ff9900;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('./pics/pexels-pixabay-315788.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-attachment: fixed;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about .text {
+            width: 50%;
+            padding: 20px;
+            font-size: 1.1rem;
+            /* text-align: center; */
+        }
+
+        .about .image {
+            width: 40%;
+            padding: 20px;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+            opacity: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service {
+            background-color: #fff;
+            padding: 30px;
+            width: 30%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service i {
+            font-size: 4rem;
+            color: #ff9900;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .service p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9900;
+            color: #fff;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #e68900;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff9900;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header nav {
+                float: none;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .about {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about .text,
+            .about .image {
+                width: 80%;
+                text-align: center;
+            }
+
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">CryptoX</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Start Your Crypto Journey Today</h2>
+        <p>Trade securely, efficiently, and with ease. Join CryptoX for seamless crypto trading.</p>
+        <a href="#services" class="cta-button">Explore Our Services</a>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="text">
+            <h2>About Us</h2>
+            <p>At CryptoX, we believe in empowering individuals with the tools and resources to trade crypto with confidence. We provide a secure and user-friendly platform for both beginners and experienced traders to engage in cryptocurrency transactions.
+                Crypto trading refers to the buying, selling, and exchanging of cryptocurrencies through online platforms known as cryptocurrency exchanges. It involves leveraging the volatility of digital currencies such as Bitcoin, Ethereum, and other altcoins to make profits. The crypto market operates 24/7, making it more dynamic and accessible than traditional financial markets, which are typically open during specific hours. </p>
+        </div>
+        <div class="image">
+            <img src="./pics/billionaires hub.jpg" alt="About CryptoX">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="service">
+            <i class="fas fa-lock"></i>
+            <h3>Secure Transactions</h3>
+            <p>Your privacy and security are our top priorities. We use the latest encryption technologies to ensure safe transactions at all times.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-chart-line"></i>
+            <h3>Real-Time Market Analysis</h3>
+            <p>Stay ahead of the market with real-time data and analytics. Make informed decisions with up-to-date charts and stats.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-cogs"></i>
+            <h3>Advanced Trading Tools</h3>
+            <p>Access advanced tools and features to take your trading to the next level. Leverage margin trading, stop losses, and more.</p>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 CryptoX. All rights reserved.</p>
+        <p>Need help? <a href="mailto:support@cryptox.com">Contact Support</a></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('header nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact form validation
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Your message has been sent successfully!");
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
